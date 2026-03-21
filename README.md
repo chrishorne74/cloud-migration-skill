@@ -1,6 +1,6 @@
 # Cloud Migration Skill for Claude
 
-A Claude Code skill that performs comprehensive cloud migration assessments without requiring an MCP server. All methodology, scoring criteria, red flags, guardrails, and strategy logic are embedded directly in the prompt.
+A Claude Code skill that performs comprehensive cloud migration assessments without requiring an MCP server. All methodology, strategy logic, and output formats are embedded in the prompt. Authoritative scoring criteria, red flags, and guardrails are provided as separate reference files — Claude reads these at assessment time for full, current definitions.
 
 ## What It Does
 
@@ -44,17 +44,46 @@ iwr https://raw.githubusercontent.com/chrishorne74/cloud-migration-skill/main/in
 
 ### Option 3 — Manual
 
-Download [cloud-migration.md](cloud-migration.md) and copy it to your Claude commands directory:
+Copy `cloud-migration.md` to your Claude commands directory and the reference data to a `cloud-migration/` subfolder:
 
 ```bash
 # macOS / Linux
 cp cloud-migration.md ~/.claude/commands/cloud-migration.md
+mkdir -p ~/.claude/commands/cloud-migration/guardrails \
+         ~/.claude/commands/cloud-migration/criteria \
+         ~/.claude/commands/cloud-migration/red-flags
+cp guardrails/migration-guardrails.md  ~/.claude/commands/cloud-migration/guardrails/
+cp criteria/migration-criteria.json    ~/.claude/commands/cloud-migration/criteria/
+cp red-flags/migration-red-flags.json  ~/.claude/commands/cloud-migration/red-flags/
+```
 
+```powershell
 # Windows
 copy cloud-migration.md %USERPROFILE%\.claude\commands\cloud-migration.md
+xcopy /E /I guardrails  %USERPROFILE%\.claude\commands\cloud-migration\guardrails
+xcopy /E /I criteria    %USERPROFILE%\.claude\commands\cloud-migration\criteria
+xcopy /E /I red-flags   %USERPROFILE%\.claude\commands\cloud-migration\red-flags
 ```
 
 Then restart Claude Code (or run `/help` to reload skills).
+
+## Repository Structure
+
+```
+cloud-migration-skill/
+├── cloud-migration.md                   ← main skill (install at ~/.claude/commands/)
+├── guardrails/
+│   └── migration-guardrails.md          ← 40+ guardrails across 9 categories
+├── criteria/
+│   └── migration-criteria.json          ← 17 CRIT + 8 CON scoring criteria with weights/bands
+├── red-flags/
+│   └── migration-red-flags.json         ← 22 red flag definitions with condition expressions
+├── install.sh                           ← one-liner installer (macOS/Linux)
+├── install.ps1                          ← one-liner installer (Windows)
+└── README.md
+```
+
+The reference files are installed to `~/.claude/commands/cloud-migration/` and loaded by Claude at assessment time.
 
 ## Usage Examples
 

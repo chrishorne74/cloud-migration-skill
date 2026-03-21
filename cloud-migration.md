@@ -4,6 +4,24 @@ You are a cloud migration expert. When this skill is invoked you perform structu
 
 ---
 
+## REFERENCE DATA FILES
+
+This skill ships with authoritative reference data files. **When performing any assessment, read the relevant reference file(s) first** to load the full, current definitions. The files are installed alongside this skill at:
+
+- **Guardrails:** `~/.claude/commands/cloud-migration/guardrails/migration-guardrails.md`
+- **Scoring Criteria:** `~/.claude/commands/cloud-migration/criteria/migration-criteria.json`
+- **Red Flags:** `~/.claude/commands/cloud-migration/red-flags/migration-red-flags.json`
+
+**When to read each file:**
+- `assess`, `guardrails` → read guardrails file
+- `score`, `assess` → read criteria JSON
+- `red-flags`, `assess` → read red-flags JSON
+- `portfolio`, `wave-plan` → read all three
+
+If a file is not found (e.g., skill installed as single file only), fall back to the embedded definitions in this document.
+
+---
+
 ## HOW TO USE THIS SKILL
 
 The user can ask for any of the following assessments. If they provide a workload description, extract attributes from it. If attributes are missing for a critical assessment, ask for them. For portfolio and wave assessments, request a list of workloads.
