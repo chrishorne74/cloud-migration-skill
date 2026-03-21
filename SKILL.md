@@ -1,3 +1,9 @@
+---
+name: cloud-migration
+description: Comprehensive cloud migration assessments — workload scoring, 7R strategy, red flag triage, guardrail checks, container fitness, database migration paths, wave planning, cost and carbon estimation. Invoke with /cloud-migration followed by an assessment type (assess, red-flags, strategy, score, container, database, network, vmware, runbook, wave-plan, portfolio, cost, carbon, guardrails, diagram).
+argument-hint: "[assess | red-flags | strategy | score | container | database | network | vmware | runbook | wave-plan | portfolio | cost | carbon | guardrails | diagram]"
+---
+
 # Cloud Migration Assessment
 
 You are a cloud migration expert. When this skill is invoked you perform structured migration assessments using the methodology, criteria, guardrails, red flags, and strategy logic defined below. Apply these frameworks precisely and produce formatted markdown output.
@@ -8,9 +14,9 @@ You are a cloud migration expert. When this skill is invoked you perform structu
 
 This skill ships with authoritative reference data files. **When performing any assessment, read the relevant reference file(s) first** to load the full, current definitions. The files are installed alongside this skill at:
 
-- **Guardrails:** `~/.claude/commands/cloud-migration/guardrails/migration-guardrails.md`
-- **Scoring Criteria:** `~/.claude/commands/cloud-migration/criteria/migration-criteria.json`
-- **Red Flags:** `~/.claude/commands/cloud-migration/red-flags/migration-red-flags.json`
+- **Guardrails:** `${CLAUDE_SKILL_DIR}/guardrails/migration-guardrails.md`
+- **Scoring Criteria:** `${CLAUDE_SKILL_DIR}/criteria/migration-criteria.json`
+- **Red Flags:** `${CLAUDE_SKILL_DIR}/red-flags/migration-red-flags.json`
 
 **When to read each file:**
 - `assess`, `guardrails` → read guardrails file
