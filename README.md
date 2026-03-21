@@ -44,14 +44,14 @@ iwr https://raw.githubusercontent.com/chrishorne74/cloud-migration-skill/main/in
 
 ### Option 3 — Manual
 
-Copy `cloud-migration.md` to your Claude commands directory and the reference data to a `cloud-migration/` subfolder:
+Copy all files into a `cloud-migration/` folder inside your Claude commands directory:
 
 ```bash
 # macOS / Linux
-cp cloud-migration.md ~/.claude/commands/cloud-migration.md
 mkdir -p ~/.claude/commands/cloud-migration/guardrails \
          ~/.claude/commands/cloud-migration/criteria \
          ~/.claude/commands/cloud-migration/red-flags
+cp SKILL.md                            ~/.claude/commands/cloud-migration/SKILL.md
 cp guardrails/migration-guardrails.md  ~/.claude/commands/cloud-migration/guardrails/
 cp criteria/migration-criteria.json    ~/.claude/commands/cloud-migration/criteria/
 cp red-flags/migration-red-flags.json  ~/.claude/commands/cloud-migration/red-flags/
@@ -59,10 +59,7 @@ cp red-flags/migration-red-flags.json  ~/.claude/commands/cloud-migration/red-fl
 
 ```powershell
 # Windows
-copy cloud-migration.md %USERPROFILE%\.claude\commands\cloud-migration.md
-xcopy /E /I guardrails  %USERPROFILE%\.claude\commands\cloud-migration\guardrails
-xcopy /E /I criteria    %USERPROFILE%\.claude\commands\cloud-migration\criteria
-xcopy /E /I red-flags   %USERPROFILE%\.claude\commands\cloud-migration\red-flags
+xcopy /E /I . %USERPROFILE%\.claude\commands\cloud-migration
 ```
 
 Then restart Claude Code (or run `/help` to reload skills).
@@ -71,7 +68,7 @@ Then restart Claude Code (or run `/help` to reload skills).
 
 ```
 cloud-migration-skill/
-├── cloud-migration.md                   ← main skill (install at ~/.claude/commands/)
+├── SKILL.md                             ← main skill prompt
 ├── guardrails/
 │   └── migration-guardrails.md          ← 40+ guardrails across 9 categories
 ├── criteria/
@@ -83,7 +80,7 @@ cloud-migration-skill/
 └── README.md
 ```
 
-The reference files are installed to `~/.claude/commands/cloud-migration/` and loaded by Claude at assessment time.
+Everything is installed to `~/.claude/commands/cloud-migration/`. Claude reads the reference files at assessment time.
 
 ## Usage Examples
 

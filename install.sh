@@ -15,13 +15,13 @@ mkdir -p "${DATA_DIR}/criteria"
 mkdir -p "${DATA_DIR}/red-flags"
 
 # Install main skill file
-curl -fsSL "${BASE_URL}/cloud-migration.md" -o "${COMMANDS_DIR}/cloud-migration.md"
+curl -fsSL "${BASE_URL}/SKILL.md" -o "${DATA_DIR}/SKILL.md"
 
 # Install reference data files
 curl -fsSL "${BASE_URL}/guardrails/migration-guardrails.md"  -o "${DATA_DIR}/guardrails/migration-guardrails.md"
 curl -fsSL "${BASE_URL}/criteria/migration-criteria.json"    -o "${DATA_DIR}/criteria/migration-criteria.json"
 curl -fsSL "${BASE_URL}/red-flags/migration-red-flags.json"  -o "${DATA_DIR}/red-flags/migration-red-flags.json"
 
-echo "Installed to ${COMMANDS_DIR}/cloud-migration.md"
+echo "Installed to ${DATA_DIR}/SKILL.md"
 echo "Reference data installed to ${DATA_DIR}/"
 echo "Restart Claude Code and invoke with: /cloud-migration"

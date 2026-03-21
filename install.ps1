@@ -12,13 +12,13 @@ New-Item -ItemType Directory -Force -Path (Join-Path $DataDir "criteria")   | Ou
 New-Item -ItemType Directory -Force -Path (Join-Path $DataDir "red-flags")  | Out-Null
 
 # Install main skill file
-Invoke-WebRequest -Uri "$BaseUrl/cloud-migration.md" -OutFile (Join-Path $CommandsDir "cloud-migration.md")
+Invoke-WebRequest -Uri "$BaseUrl/SKILL.md" -OutFile (Join-Path $DataDir "SKILL.md")
 
 # Install reference data files
 Invoke-WebRequest -Uri "$BaseUrl/guardrails/migration-guardrails.md" -OutFile (Join-Path $DataDir "guardrails\migration-guardrails.md")
 Invoke-WebRequest -Uri "$BaseUrl/criteria/migration-criteria.json"   -OutFile (Join-Path $DataDir "criteria\migration-criteria.json")
 Invoke-WebRequest -Uri "$BaseUrl/red-flags/migration-red-flags.json" -OutFile (Join-Path $DataDir "red-flags\migration-red-flags.json")
 
-Write-Host "Installed to $CommandsDir\cloud-migration.md"
+Write-Host "Installed to $DataDir\SKILL.md"
 Write-Host "Reference data installed to $DataDir\"
 Write-Host "Restart Claude Code and invoke with: /cloud-migration"
