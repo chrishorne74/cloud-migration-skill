@@ -122,6 +122,10 @@ Cloud licensing confirmed: no
 
 22 red flag definitions: 8 BLOCKERs, 9 HIGH, 4 MEDIUM, 3 WARNING. Includes physical hardware, sub-millisecond latency, licensing, mainframe, database-specific blockers, zombie workloads, and organisational risks.
 
+## GitHub Copilot
+
+A Copilot-compatible prompt file is available in [`copilot/`](copilot/). Drop it into `.github/prompts/` in any VS Code workspace and invoke with `/cloud-migration` in Copilot Chat. See [copilot/README.md](copilot/README.md) for setup instructions.
+
 ## Related Projects
 
 - [cloud-migration-mcp](https://github.com/chrishorne74/cloud-migration-mcp) — MCP server version with 30+ tools, Docker support, and runtime-configurable guardrails/criteria/red flags
